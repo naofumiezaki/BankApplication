@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 April 2011 11:37:37 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.bank.Model.BankAccount" table="bankaccount" >
+        <id name="acctno" type="java.lang.Integer">
+            <column name="acctno" />
+            <generator class="native" />
+        </id>
+
+        <property name="acct_type" type="string">
+            <column name="acct_type"  />
+        </property>
+        <property name="balance_available" type="double">
+            <column name="balance_available"  />
+        </property>
+        
+        <many-to-one name="customer" column="customerno" not-null="true"/>
+
+    </class>
+</hibernate-mapping>

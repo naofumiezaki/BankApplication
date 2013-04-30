@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 April 2011 11:37:37 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.bank.Model.Customer" table="customer">
+		<id name="customerno" type="java.lang.Integer">
+			<column name="customerno" />
+			<generator class="native" />
+		</id>
+		<property name="customerName" type="string">
+			<column name="customername" />
+		</property>
+
+		<property name="city" type="string">
+			<column name="city" />
+		</property>
+
+		<property name="zip" type="string">
+			<column name="zip" />
+		</property>
+
+		<property name="phone" type="string">
+			<column name="phone" />
+		</property>
+		
+		<set name="bankAccounts" inverse="true">
+			<key>
+				<column name="customerno" not-null="true" />
+			</key>
+			<one-to-many class="com.bank.Model.BankAccount" />
+		</set>
+	</class>
+</hibernate-mapping>
